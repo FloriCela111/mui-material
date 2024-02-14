@@ -11,7 +11,6 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { theme } from "../theme"; // Import the theme object
 import React, { useState } from "react";
 
 const StyledToolBar = styled(Toolbar)({

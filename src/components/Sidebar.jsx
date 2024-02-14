@@ -5,23 +5,22 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
+  ListItemText, Switch,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import {
   AccountBox,
   Article,
-  FireTruckRounded,
   Group,
-  Home,
+  Home, ModeNight,
   Person,
   Settings,
   Storefront,
 } from "@mui/icons-material";
 
-export const Sidebar = () => {
+export const Sidebar = ({ mode, setmode }) => {
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
+      <Box position='fixed'>
       <List>
         <ListItem disablePadding>
           <ListItemButton component="a" href="#home">
@@ -32,7 +31,7 @@ export const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="#page">
             <ListItemIcon>
               <Article />
             </ListItemIcon>
@@ -40,7 +39,7 @@ export const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="#group">
             <ListItemIcon>
               <Group />
             </ListItemIcon>
@@ -48,7 +47,7 @@ export const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="#marketplace">
             <ListItemIcon>
               <Storefront />
             </ListItemIcon>
@@ -56,7 +55,7 @@ export const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="#friends">
             <ListItemIcon>
               <Person />
             </ListItemIcon>
@@ -64,7 +63,7 @@ export const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="#settings">
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
@@ -72,14 +71,23 @@ export const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton component="a" href="#profile">
             <ListItemIcon>
               <AccountBox />
             </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItemButton>
         </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton component="a" href="#profile">
+            <ListItemIcon>
+              <ModeNight />
+            </ListItemIcon>
+            <Switch onChange={e => setmode(mode === 'light' ? 'dark' : 'light')} />
+          </ListItemButton>
+        </ListItem>
       </List>
+      </Box>
     </Box>
   );
 };
